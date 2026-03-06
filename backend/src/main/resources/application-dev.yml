@@ -37,8 +37,8 @@ spring:
   mail:
     port: 465
     host: smtp.126.com
-    username: oilbone@126.com
-    password: GLhCjNzgzQXareYv
+    username: your_email@126.com
+    password: your_email_password
     time: 3
     protocol: smtps
     properties:
@@ -49,18 +49,18 @@ spring:
           auth: true
 
   rabbitmq:
-    addresses: 43.139.163.68
-    username: oilbone
-    password: oil123123
+    addresses: your_rabbitmq_host
+    username: your_rabbitmq_username
+    password: your_rabbitmq_password
     virtual-host: /
     listener:
       simple:
         acknowledge-mode: auto  # 改为自动确认
 
   datasource:
-    url: jdbc:mysql://43.139.163.68:3306/Api_project
-    username: root
-    password: oil123123
+    url: jdbc:mysql://your_mysql_host:3306/Api_project
+    username: your_mysql_username
+    password: your_mysql_password
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
       minimum-idle: 20  # 与maximum-pool-size一致
@@ -85,9 +85,9 @@ spring:
   data:
     redis:
       port: 6379
-      host: 43.139.163.68
+      host: your_redis_host
       database: 0
-      password: oil123123
+      password: your_redis_password
 
   config:
     import: "nacos:light-api-backend.yaml"  # ✅ 正确导入配置
@@ -95,16 +95,16 @@ spring:
     nacos:
       discovery:
         enabled: true  # 显式开启服务注册
-        server-addr: 43.139.163.68:8848  # 必须与截图中的地址一致
+        server-addr: your_nacos_host:8848  # 必须与截图中的地址一致
         username: nacos                   # 配置中心鉴权（与服务端一致）
-        password: oil123123
+        password: your_nacos_password
         namespace: public                 # 命名空间需匹配
         group: DEFAULT_GROUP              # 默认组
       config:
         enabled: true
-        server-addr: 43.139.163.68:8848  # ✅ 注意短横线（原server—addr长横线错误）
+        server-addr: your_nacos_host:8848  # ✅ 注意短横线（原server—addr长横线错误）
         username: nacos                   # 配置中心鉴权（与服务端一致）
-        password: oil123123
+        password: your_nacos_password
         namespace: public                 # ✅ 命名空间需在Nacos控制台存在
         group: DEFAULT_GROUP              # ✅ 分组名需无特殊字符（原DEFAULT_Group_ID européen非法）
         file-extension: yaml
@@ -116,8 +116,8 @@ dubbo:
     name: dubbo  # 使用 Dubbo 协议
     port: 20880  # 服务端口（若设置为 -1，则自动分配端口）
   registry:
-    address: nacos://43.139.163.68:8848  # Nacos 地址
+    address: nacos://your_nacos_host:8848  # Nacos 地址
     parameters:
       namespace: public
       username: nacos
-      password: oil123123
+      password: your_nacos_password

@@ -27,8 +27,8 @@ dubbo:
     name: dubbo  # 使用 Dubbo 协议
     port: 20881  # 服务端口（若设置为 -1，则自动分配端口）
   registry:
-    address: nacos://43.139.163.68:8848  # Nacos 地址
+    address: nacos://your_nacos_host:8848  # Nacos 地址
     parameters:
       namespace: public
       username: nacos
-      password: oil123123
+      password: your_nacos_password
